@@ -1,2 +1,5 @@
 # zhihu_hot
-zhihu trending hot questions with flutter
+
+Zhihu trending hot questions written with flutter.
+
+Editing with Visual Studio Code.
