@@ -66,11 +66,11 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     String today = DateFormat('yyyy-MM-dd').format(DateTime.now());
     selectedDate = DateTime.now();
-    fetchData(today);
+    _fetchData(today);
   }
 
   // 网络请求
-  Future<void> fetchData(String date) async {
+  Future<void> _fetchData(String date) async {
     setState(() {
       loadingState = LoadingState.loading;
     });
@@ -129,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
       setState(() {
         selectedDate = picked;
         String formatDate = DateFormat('yyyy-MM-dd').format(picked!);
-        fetchData(formatDate);
+        _fetchData(formatDate);
       });
     }
   }
@@ -140,7 +140,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   // 打开iOS、Android端webview
-  void openWebView(BuildContext context, String url) {
+  void _openWebView(BuildContext context, String url) {
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -200,7 +200,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     if (defaultTargetPlatform == TargetPlatform.iOS || 
                     defaultTargetPlatform == TargetPlatform.android) {
-                      openWebView(context, _data[index].url);
+                      _openWebView(context, _data[index].url);
                     } else {
                       _launchUrl(_data[index].url);
                     }
