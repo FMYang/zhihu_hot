@@ -145,12 +145,9 @@ class _MyHomePageState extends State<MyHomePage> {
       context,
       MaterialPageRoute(
         builder: (context) => Container(
-          child: Column(
+          color: Colors.white,
+          child: SafeArea(bottom: false, child: Column(
             children: [
-              Container(
-                height: 54.0, // 设置WebView顶部安全距离的高度
-                color: Colors.white, // 设置安全距离的白色视图
-              ),
               Expanded(
                 child: InAppWebView(
                   initialUrlRequest: URLRequest(url: Uri.parse(url)),
@@ -158,6 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
+        ),
         ),
       ),
     );
